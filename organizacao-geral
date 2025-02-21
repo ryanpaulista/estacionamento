@@ -7,26 +7,27 @@ projeto-estacionamento/
 │   └── diagrama.png            # Diagrama UML exportado como PNG
 │
 ├── src/                        # Código-fonte do projeto
-│   ├── com.estacionamento/     # Pacote principal do projeto
-│   │   ├── entidades/          # Classes principais (entidades do sistema)
-│   │   │   ├── Cliente.java    # Classe Cliente
-│   │   │   ├── Veiculo.java    # Classe Veiculo
-│   │   │   ├── Vaga.java       # Classe Vaga
-│   │   │   └── Recibo.java     # Classe Recibo
-│   │   │
-│   │   ├── servicos/           # Classes de serviço (lógica de negócio)
-│   │   │   ├── Estacionamento.java  # Classe Estacionamento
-│   │   │   └── Relatorio.java       # Classe para geração de relatórios
-│   │   │
-│   │   ├── interfaces/         # Interfaces do sistema
-│   │   │   └── Pagavel.java    # Interface Pagavel
-│   │   │
-│   │   ├── exceptions/         # Exceções personalizadas
-│   │   │   └── VagaIndisponivelException.java
-│   │   │
-│   │   └── util/               # Classes utilitárias (validações, persistência, etc.)
-│   │       ├── Validador.java  # Validação de dados
-│   │       └── Persistencia.java # Persistência de dados em arquivos
+│   ├── com/
+│   │   └──estacionamento/     # Pacote principal do projeto
+│   │      ├── entidades/          # Classes principais (entidades do sistema)
+│   │      │   ├── Cliente.java    # Classe Cliente
+│   │      │   ├── Veiculo.java    # Classe Veiculo
+│   │      │   ├── Vaga.java       # Classe Vaga
+│   │      │   └── Recibo.java     # Classe Recibo
+│   │      │
+│   │      ├── servicos/           # Classes de serviço (lógica de negócio)
+│   │      │   ├── Estacionamento.java  # Classe Estacionamento
+│   │      │   └── Relatorio.java       # Classe para geração de relatórios
+│   │      │
+│   │      ├── interfaces/         # Interfaces do sistema
+│   │      │   └── Pagavel.java    # Interface Pagavel
+│   │      │
+│   │      ├── exceptions/         # Exceções personalizadas
+│   │      │   └── VagaIndisponivelException.java
+│   │      │
+│   │      └── util/               # Classes utilitárias (validações, persistência, etc.)
+│   │          ├── Validador.java  # Validação de dados
+│   │          └── Persistencia.java # Persistência de dados em arquivos
 │   │
 │   └── Main.java               # Ponto de entrada do programa (menu/console)
 │
