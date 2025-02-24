@@ -17,7 +17,9 @@ projeto-estacionamento/
 │   │      │
 │   │      ├── servicos/           # Classes de serviço (lógica de negócio)
 │   │      │   ├── Estacionamento.java  # Classe Estacionamento
-│   │      │   └── Relatorio.java       # Classe para geração de relatórios
+│   │      │   ├── Relatorio.java     # Classe para geração de relatórios abstract
+│   │      │   ├── RelatorioFinanceiro.java # Classe extends Relatório mostra as receitas totais 
+│   │      │   └── RelatórioOperacional.java # Classe extends Relatório mostra a ocupação de vagas
 │   │      │
 │   │      ├── interfaces/         # Interfaces do sistema
 │   │      │   └── Pagavel.java    # Interface Pagavel
