@@ -23,6 +23,16 @@ public class Estacionamento{
         this.proximoIdRecibo = 1;
     }
 
+
+    public Vaga[] getVagas(){
+        return vagas;
+    }
+
+    public Recibo[] getRecibos(){
+        return recibos;
+    }
+
+
     // Encontra uma vaga livre
     public Vaga encontrarVagaLivre(){
 
@@ -69,4 +79,5 @@ public class Estacionamento{
             }
         }
     }
+
 }

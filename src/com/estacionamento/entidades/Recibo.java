@@ -1,5 +1,7 @@
 package com.estacionamento.entidades;
 
+import com.estacionamento.entidades.*;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -17,6 +19,10 @@ public class Recibo{
         this.entrada = entrada;
         this.saida = saida;
         this.valor = valor;
+    }
+
+    public double getValor(){
+        return this.valor;
     }
 
     @Override
