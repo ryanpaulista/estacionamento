@@ -1,3 +1,0 @@
-Veiculo [placa = 12345, modelo = civic, cor = vermelho]
-Veiculo [placa = 123456, modelo = corsa, cor = preto]
-Veiculo [placa = 54321, modelo = bmw, cor = branco]

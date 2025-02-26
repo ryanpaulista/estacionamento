@@ -1,7 +1,7 @@
 package com.estacionamento.servicos;
 
-public abstract class Relatorio{
+public interface Relatorio{
 
-    public abstract String toString();
+    void gerar();
 
 }

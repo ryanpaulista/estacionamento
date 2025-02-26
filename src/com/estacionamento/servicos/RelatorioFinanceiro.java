@@ -2,7 +2,7 @@ package com.estacionamento.servicos;
 
 import com.estacionamento.entidades.*;
 
-public class RelatorioFinanceiro extends Relatorio{
+public class RelatorioFinanceiro implements Relatorio{
 
     private Recibo[] recibos;
     private double valor;
@@ -15,8 +15,8 @@ public class RelatorioFinanceiro extends Relatorio{
         }
     }
 
-    public String toString(){
-        return "Relatório Financeiro: \n" + 
-               "Total recebido: " + this.valor;
+    @Override
+    public void gerar(){
+        System.out.println("Valor total arrecadado: R$ " + valor);
     }
 }

@@ -2,7 +2,7 @@ package com.estacionamento.servicos;
 
 import com.estacionamento.entidades.*;
 
-public class RelatorioOperacional extends Relatorio{
+public class RelatorioOperacional implements Relatorio{
 
     private Vaga[] vagas;
     private int vagasLivres;
@@ -22,9 +22,7 @@ public class RelatorioOperacional extends Relatorio{
     }
 
     @Override
-    public String toString(){
-        return "Relatório operacional:\n" + 
-        "Quantidade de vagas livre: " + this.vagasLivres + "\n" +
-        "Quantidade de vagas ocupadas: " + this.vagasOcupadas;
+    public void gerar(){
+        System.out.println("Vagas ocupadas: " + vagasOcupadas + "\n" + "Vagas livre: " + vagasLivres);
     }
 }
