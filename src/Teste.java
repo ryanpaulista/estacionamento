@@ -29,7 +29,9 @@ public class Teste {
             System.out.println("|  2. Registrar saída de veículo   |");
             System.out.println("|  3. Gerar relatório operacional  |");
             System.out.println("|  4. Gerar relatório financeiro   |");
-            System.out.println("|  5. Sair                         |");
+            System.out.println("|  5. Registrar cliente VIP        |");
+            System.out.println("|  6. Listar clientes VIP          |");
+            System.out.println("|  6. Sair                         |");
             System.out.println("====================================");
             System.out.print("└───> Escolha uma opção: ");
             int opcao = scanner.nextInt();
@@ -89,7 +91,7 @@ public class Teste {
                     }
                     break;
                 case 4:
-                    if(estacionamento.getRecibos().length==0){
+                    if(estacionamento.getRecibos().size()==0){
                         try{
                             System.out.println("\nGerando Relatório Financeiro...");
                             RelatorioFinanceiro relatorioFinanceiro = new RelatorioFinanceiro(estacionamento.getRecibos());
@@ -102,6 +104,40 @@ public class Teste {
                         break;
                     }
                 case 5:
+                    try{
+                        System.out.print("└───> Digite o nome do cliente VIP:\nNOME: ");
+                        String nome = scanner.nextLine();
+                        System.out.print("└───> Digite o telefone do cliente VIP:\nTELEFONE: ");
+                        String telefone = scanner.nextLine();
+                        System.out.print("└───> Digite o cpf do cliente:\nCPF: ");
+                        String cpf = scanner.nextLine();
+                        System.out.print("└───> Digite a placa do veículo do cliente VIP:\nPLACA: ");
+                        String placa = scanner.nextLine();
+                        System.out.print("└───> Digite o modelo do veículo do cliente VIP:\nMODELO: ");
+                        String modelo = scanner.nextLine();
+                        System.out.print("└───> Digite a cor do veículo do cliente VIP:\nCOR: ");
+                        String cor = scanner.nextLine();
+                        Veiculo veiculo = new Veiculo(placa, modelo, cor);
+                        
+                        estacionamento.registrarClienteVIP(nome, telefone, cpf, veiculo);
+                        
+                        System.out.println("Cliente VIP registrado com sucesso!");
+                    } catch(IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 6:
+                    try{
+                        if(estacionamento.getClientesVIP()==null || estacionamento.getClientesVIP().isEmpty()){
+                            System.out.println("Nenhum cliente VIP foi registrado.");
+                        } else{
+                            System.out.println(estacionamento.getClientesVIP());
+                        }
+                    } catch(IllegalArgumentException e){
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 7:
                     System.out.println("Saindo...");
                     scanner.close();
                     return;

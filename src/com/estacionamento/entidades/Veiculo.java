@@ -1,5 +1,7 @@
 package com.estacionamento.entidades;
 
+import java.util.Objects;
+
 public class Veiculo{
 
     private String placa;
@@ -35,6 +37,19 @@ public class Veiculo{
     @Override
     public String toString() {
         return "Veiculo [placa = " + this.placa + ", modelo = " + this.modelo + ", cor = " + this.cor + "]";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Veiculo outroVeiculo = (Veiculo) obj;
+        return Objects.equals(placa, outroVeiculo.placa);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(placa);
     }
     
 

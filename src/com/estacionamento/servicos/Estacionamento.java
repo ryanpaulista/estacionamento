@@ -5,33 +5,37 @@ import com.estacionamento.entidades.*;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Collections;
+
 public class Estacionamento{
     
-    private Vaga[] vagas;
+    private List<Vaga> vagas;
     private Tarifa tarifa;
-    private Recibo[] recibos;
+    private List<Recibo> recibos;
     private int proximoIdRecibo;
+    private int proximoIdCliente;
+    private List<ClienteVIP> clientesVIP;
 
     public Estacionamento(int numVagas, Tarifa tarifa){
-        this.vagas = new Vaga[numVagas];
+        this.vagas = new ArrayList<>();
 
         for (int i=0; i<numVagas;i++){
-            vagas[i] = new Vaga(i+1);
+            vagas.add(i, new Vaga(i+1));
         }
+
         this.tarifa = tarifa;
-        this.recibos = new Recibo[100];
+        this.recibos = new ArrayList<>();
         this.proximoIdRecibo = 1;
+        this.proximoIdCliente = 1;
+        this.clientesVIP = new ArrayList<>();
     }
 
-
-    public Vaga[] getVagas(){
-        return vagas;
-    }
-
-    public Recibo[] getRecibos(){
-        return recibos;
-    }
-
+    // getters
+    public List<Vaga> getVagas(){return Collections.unmodifiableList(this.vagas);}
+    public List<Recibo> getRecibos(){return Collections.unmodifiableList(this.recibos);}
+    public List<ClienteVIP> getClientesVIP(){return Collections.unmodifiableList(this.clientesVIP);}
 
     // Encontra uma vaga livre
     public Vaga encontrarVagaLivre(){
@@ -60,8 +64,12 @@ public class Estacionamento{
                 double horas = duracao.toMinutes() / 60.0;
 
                 //Valor a ser pago perante a tarifa
-                double valor = tarifa.calcularTarifa(horas);
+                double valor = 0.0;
 
+                if(isClienteVIP(veiculo)==false){
+                    valor = tarifa.calcularTarifa(horas);
+                }
+    
                 //Gera do rebido
                 Recibo recibo = new Recibo(proximoIdRecibo++, veiculo, entrada, saida, valor);
                 adicionarRecibo(recibo);
@@ -72,12 +80,30 @@ public class Estacionamento{
     }
 
     private void adicionarRecibo(Recibo recibo){
-        for(int i=0; i<recibos.length; i++){
-            if(recibos[i]==null){
-                recibos[i] = recibo;
-                break;
+        if (recibo==null){
+            throw new IllegalArgumentException("O recibo não pode ser nulo.");
+        }
+        recibos.add(recibo);
+    }
+
+    public void registrarClienteVIP(String nome, String telefone, String cpf, Veiculo veiculo){
+        ClienteVIP clienteVIP = new ClienteVIP(proximoIdCliente++, nome, telefone, cpf, veiculo);
+        clientesVIP.add(clienteVIP);
+    }
+
+    private boolean isClienteVIP(Veiculo veiculo){
+        List<ClienteVIP> clientesVIP = getClientesVIP();
+        if (clientesVIP == null || clientesVIP.isEmpty()) {
+            return false;
+        }
+
+        for (ClienteVIP clienteVIP : clientesVIP) {
+            Veiculo veiculoVIP = clienteVIP.getVeiculo();
+            if (veiculoVIP != null && veiculo.equals(veiculoVIP)) {
+                return true;
             }
         }
+        return false;
     }
 
 }
