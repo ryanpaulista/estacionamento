@@ -91,6 +91,16 @@ public class Estacionamento{
         clientesVIP.add(clienteVIP);
     }
 
+    public boolean removerClienteVIP(String cpf){
+        for(ClienteVIP clienteVIP : clientesVIP){
+            if(clienteVIP.getCPF().equals(cpf)){
+                clientesVIP.remove(clienteVIP);
+                return true;
+            }
+        }
+        return false;
+    }
+
     private boolean isClienteVIP(Veiculo veiculo){
         List<ClienteVIP> clientesVIP = getClientesVIP();
         if (clientesVIP == null || clientesVIP.isEmpty()) {
