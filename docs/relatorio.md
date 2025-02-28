@@ -9,8 +9,8 @@ Este relatório descreve o processo de desenvolvimento de um sistema de estacion
 
 ### **2.1. Estrutura do Sistema**
 - **Programação Orientada a Objetos (POO):**  
-  O sistema foi desenvolvido utilizando os princípios da POO, como encapsulamento, herança e polimorfismo. Essa abordagem permitiu criar uma estrutura modular e reutilizável.
-  - **Herança:** 
+  O sistema foi desenvolvido utilizando os princípios da POO, como encapsulamento, herança, interface e polimorfismo. Essa abordagem permitiu criar uma estrutura modular e reutilizável.
+  - **Herança:** Implementada no `ClienteVIP`, os clientes vips são clientes que possuem acesso liberado no estacionamento. 
   - **Interfaces:** Implementada no `Relatorio` para geração de relatórios para cálculo de valores e quantidade de vagas ocupadas e livres. Isso promoveu maior modularidade e extensibilidade.
 
 ### **2.2. Persistência de Dados**
@@ -56,6 +56,3 @@ Este relatório descreve o processo de desenvolvimento de um sistema de estacion
 
 ### **4.3. Melhoria da Experiência do Usuário**
 - Implementamos cores no terminal usando códigos ANSI para destacar mensagens importantes, como erros em vermelho e sucessos em verde.  
-  **Exemplo de código para cores:**
-  ```java
-  System.out.println(ConsoleColors.RED + "Erro: Ocorreu um problema!" + ConsoleColors.RESET);

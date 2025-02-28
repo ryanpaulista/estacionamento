@@ -19,6 +19,7 @@ projeto-estacionamento/
 │   │      │   ├── Estacionamento.java  # Classe Estacionamento
 │   │      │   ├── Relatorio.java     # Classe para geração de relatórios abstract
 │   │      │   ├── RelatorioFinanceiro.java # Classe extends Relatório mostra as receitas totais 
+│   │      │   ├── Tarifa.java # Classe Tarifa
 │   │      │   └── RelatórioOperacional.java # Classe extends Relatório mostra a ocupação de vagas
 │   │      │
 │   │      ├── interfaces/         # Interfaces do sistema

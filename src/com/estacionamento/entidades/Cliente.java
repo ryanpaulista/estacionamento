@@ -47,6 +47,13 @@ public class Cliente{
         this.telefone = telefone;
     }
 
+    public void setCPF(String cpf){
+        if(cpf==null || cpf.length()!=14){
+            throw new IllegalArgumentException("CPF inválido. Escreva-o nesse padrão: ___.___.___-__");
+        }
+        this.cpf = cpf;
+    }
+
     public boolean devePagar(){
         return true;
     }

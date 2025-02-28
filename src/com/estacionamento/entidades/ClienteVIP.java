@@ -15,6 +15,10 @@ public class ClienteVIP extends Cliente{
 
     public Veiculo getVeiculo(){return this.veiculo;}
 
+    public void setVeiculo(Veiculo veiculo){
+        this.veiculo = veiculo;
+    }
+
     @Override
     public boolean devePagar(){
         return false; 

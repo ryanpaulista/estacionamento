@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
+import java.util.Scanner;
 
 public class Estacionamento{
     
@@ -89,6 +90,46 @@ public class Estacionamento{
     public void registrarClienteVIP(String nome, String telefone, String cpf, Veiculo veiculo){
         ClienteVIP clienteVIP = new ClienteVIP(proximoIdCliente++, nome, telefone, cpf, veiculo);
         clientesVIP.add(clienteVIP);
+    }
+
+    public void editarClienteVIP(String cpf){
+
+        Scanner scanner = new Scanner(System.in);
+       
+        for(ClienteVIP clienteVIP : clientesVIP){
+            if(clienteVIP.getCPF().equals(cpf)){
+               System.out.print("└───> O que deseja alterar?\n1 - CPF / 2 = NOME / 3 = TELEFONE / 4 = VEICULO: ");
+               int opcao = scanner.nextInt();
+               scanner.nextLine();
+               switch(opcao){
+                    case 1:
+                        System.out.print("└───> Digite o novo CPF do cliente VIP:\nCPF - ___.___.___-__: ");
+                        String cpf2 = scanner.nextLine();
+                        clienteVIP.setCPF(cpf2);
+                        break;
+                    case 2:
+                        System.out.print("└───> Digite o novo nome do cliente VIP:\nNome: ");
+                        String nome = scanner.nextLine();
+                        clienteVIP.setNome(nome);
+                        break;
+                    case 3:
+                        System.out.print("└───> Digite o novo telefone do cliente VIP:\nTELEFONE: ");
+                        String telefone = scanner.nextLine();
+                        clienteVIP.setCPF(telefone);
+                        break;
+                    case 4:
+                        System.out.print("└───> Digite a placa do veículo do cliente VIP:\nPLACA: ");
+                        String placa = scanner.nextLine();
+                        System.out.print("└───> Digite o modelo do veículo do cliente VIP:\nMODELO: ");
+                        String modelo = scanner.nextLine();
+                        System.out.print("└───> Digite a cor do veículo do cliente VIP:\nCOR: ");
+                        String cor = scanner.nextLine();
+                        Veiculo veiculo = new Veiculo(placa, modelo, cor);
+                        clienteVIP.setVeiculo(veiculo);
+                        break;
+               }
+            }
+        }
     }
 
     public boolean removerClienteVIP(String cpf){

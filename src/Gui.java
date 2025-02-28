@@ -10,7 +10,7 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 
-public class Teste {
+public class Gui {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -31,8 +31,9 @@ public class Teste {
             System.out.println("|  4. Gerar relatório financeiro   |");
             System.out.println("|  5. Registrar Cliente VIP        |");
             System.out.println("|  6. Remover Cliente VIP          |");
-            System.out.println("|  7. Listar Clientes VIP          |");
-            System.out.println("|  8. Sair                         |");
+            System.out.println("|  7. Editar Cliente VIP           |");
+            System.out.println("|  8. Listar Clientes VIP          |");
+            System.out.println("|  9. Sair                         |");
             System.out.println("====================================");
             System.out.print("└───> Escolha uma opção: ");
             int opcao = scanner.nextInt();
@@ -61,7 +62,6 @@ public class Teste {
                         System.out.println(e.getMessage());
                     }
                     break;
-
                 case 2:
                     try {
                         System.out.println("Digite a placa do veículo:");
@@ -150,6 +150,22 @@ public class Teste {
                     try{
                         if(estacionamento.getClientesVIP()==null || estacionamento.getClientesVIP().isEmpty()){
                             System.out.println("Nenhum cliente VIP foi registrado.");
+                            break;
+                        } else {
+                            System.out.println("Clientes VIPS cadastrados:");
+                            System.out.println(estacionamento.getClientesVIP());
+                            System.out.print("└───> Digite o CPF registrado do cliente VIP que deseja alterar:\nCPF: ");
+                            String cpf = scanner.nextLine();
+                            estacionamento.editarClienteVIP(cpf);
+                        }
+                        
+                    }catch(IllegalArgumentException e){;
+                        System.out.println(e.getMessage());
+                    }
+                case 8:
+                    try{
+                        if(estacionamento.getClientesVIP()==null || estacionamento.getClientesVIP().isEmpty()){
+                            System.out.println("Nenhum cliente VIP foi registrado.");
                         } else{
                             System.out.println(estacionamento.getClientesVIP());
                         }
@@ -157,7 +173,7 @@ public class Teste {
                         System.out.println(e.getMessage());
                     }
                     break;
-                case 8:
+                case 9:
                     System.out.println("Saindo...");
                     scanner.close();
                     return;
