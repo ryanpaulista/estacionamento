@@ -11,4 +11,4 @@ Comando: "java Gui"
 
 # Relatório
 
-Para visualizar o relatório sobre a produção do sistema basta acessar a página docs.
+Para visualizar o relatório sobre a produção do sistema basta acessar a pasta docs.
